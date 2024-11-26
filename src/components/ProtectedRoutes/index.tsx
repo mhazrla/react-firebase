@@ -6,7 +6,7 @@ interface IProtectedRoutesProps {}
 const ProtectedRoutes: React.FunctionComponent<IProtectedRoutesProps> = (
   props
 ) => {
-  const isAuth: boolean = true;
+  const isAuth: boolean = false;
   const location = useLocation();
 
   return isAuth ? (
