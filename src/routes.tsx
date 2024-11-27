@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "./pages/login";
 import Error from "./pages/error";
 import SignUp from "./pages/signup";
-import CreatePost from "./pages/Post";
+import CreatePost from "./pages/post";
 import Profile from "./pages/profile";
 import MyPhotos from "./pages/myphotos";
 import ProtectedRoutes from "./components/ProtectedRoutes";

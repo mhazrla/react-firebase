@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -47,20 +48,24 @@ export const userAuthContext = createContext<AuthContextData>({
   oAuth,
 });
 
-export const userAuthProvider: React.FunctionComponent<
+export const UserAuthProvider: React.FunctionComponent<
   IUserAuthProviderProps
 > = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) setUser(user);
+      if (user) {
+        console.log(user);
+        setUser(user);
+      }
 
       return () => {
         unsubscribe();
       };
     });
   });
+
   const value: AuthContextData = {
     user,
     logIn,
@@ -68,11 +73,14 @@ export const userAuthProvider: React.FunctionComponent<
     logOut,
     oAuth,
   };
+
   return (
-    <userAuthContext.Provider value={}>{children}</userAuthContext.Provider>
+    <userAuthContext.Provider value={value}>
+      {children}
+    </userAuthContext.Provider>
   );
 };
 
-export const userUserAuth = () => {
+export const useUserAuth = () => {
   return useContext(userAuthContext);
 };
