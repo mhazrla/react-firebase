@@ -1,9 +1,14 @@
+import Layout from "@/components/layout";
 import React from "react";
 
 interface IHomeProps {}
 
 const Home: React.FunctionComponent<IHomeProps> = () => {
-  return <div>Home</div>;
+  return (
+    <Layout>
+      <div>Home</div>
+    </Layout>
+  );
 };
 
 export default Home;
